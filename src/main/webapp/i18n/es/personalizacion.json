@@ -1,0 +1,27 @@
+{
+  "techmarketApp": {
+    "personalizacion": {
+      "home": {
+        "title": "Personalizacions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Personalizacion",
+        "createOrEditLabel": "Crear o editar Personalizacion",
+        "notFound": "Ningún Personalizacions encontrado"
+      },
+      "created": "Un nuevo Personalizacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Personalizacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Personalizacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Personalizacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Personalizacion"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "opciones": "Opciones",
+      "dispositivo": "Dispositivo"
+    }
+  }
+}

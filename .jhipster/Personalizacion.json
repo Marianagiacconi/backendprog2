@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20241004124559"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Personalizacion",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "opcion",
+      "relationshipName": "opciones",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

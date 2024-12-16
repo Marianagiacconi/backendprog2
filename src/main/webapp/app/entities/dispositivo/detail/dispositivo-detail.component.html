@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (dispositivo(); as dispositivoRef) {
+      <div>
+        <h2 data-cy="dispositivoDetailsHeading"><span jhiTranslate="techmarketApp.dispositivo.detail.title">Dispositivo</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ dispositivoRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.dispositivo.codigo">Codigo</span></dt>
+          <dd>
+            <span>{{ dispositivoRef.codigo }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.dispositivo.nombre">Nombre</span></dt>
+          <dd>
+            <span>{{ dispositivoRef.nombre }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.dispositivo.descripcion">Descripcion</span></dt>
+          <dd>
+            <span>{{ dispositivoRef.descripcion }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.dispositivo.precioBase">Precio Base</span></dt>
+          <dd>
+            <span>{{ dispositivoRef.precioBase }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.dispositivo.moneda">Moneda</span></dt>
+          <dd>
+            <span>{{ dispositivoRef.moneda }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.dispositivo.adicionales">Adicionales</span></dt>
+          <dd>
+            @for (adicionales of dispositivoRef.adicionales; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/adicional', adicionales.id, 'view']">{{ adicionales?.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/dispositivo', dispositivoRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

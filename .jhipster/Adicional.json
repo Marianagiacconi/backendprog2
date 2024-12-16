@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20241004124555"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "precio",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "precioGratis",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "name": "Adicional",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "dispositivo",
+      "otherEntityRelationshipName": "adicionales",
+      "relationshipName": "dispositivos",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

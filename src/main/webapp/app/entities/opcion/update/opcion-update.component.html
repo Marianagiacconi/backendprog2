@@ -1,0 +1,125 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-opcion-heading" data-cy="OpcionCreateUpdateHeading" jhiTranslate="techmarketApp.opcion.home.createOrEditLabel">
+        Create or edit a Opcion
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="techmarketApp.opcion.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let codigoRef = editForm.get('codigo')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_codigo" jhiTranslate="techmarketApp.opcion.codigo">Codigo</label>
+          <input type="text" class="form-control" name="codigo" id="field_codigo" data-cy="codigo" formControlName="codigo" />
+          @if (codigoRef.invalid && (codigoRef.dirty || codigoRef.touched)) {
+            <div>
+              @if (editForm.get('codigo')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let nombreRef = editForm.get('nombre')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_nombre" jhiTranslate="techmarketApp.opcion.nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+          @if (nombreRef.invalid && (nombreRef.dirty || nombreRef.touched)) {
+            <div>
+              @if (editForm.get('nombre')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let descripcionRef = editForm.get('descripcion')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_descripcion" jhiTranslate="techmarketApp.opcion.descripcion">Descripcion</label>
+          <input
+            type="text"
+            class="form-control"
+            name="descripcion"
+            id="field_descripcion"
+            data-cy="descripcion"
+            formControlName="descripcion"
+          />
+          @if (descripcionRef.invalid && (descripcionRef.dirty || descripcionRef.touched)) {
+            <div>
+              @if (editForm.get('descripcion')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let precioAdicionalRef = editForm.get('precioAdicional')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_precioAdicional" jhiTranslate="techmarketApp.opcion.precioAdicional">Precio Adicional</label>
+          <input
+            type="number"
+            class="form-control"
+            name="precioAdicional"
+            id="field_precioAdicional"
+            data-cy="precioAdicional"
+            formControlName="precioAdicional"
+          />
+          @if (precioAdicionalRef.invalid && (precioAdicionalRef.dirty || precioAdicionalRef.touched)) {
+            <div>
+              @if (editForm.get('precioAdicional')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('precioAdicional')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_personalizacion" jhiTranslate="techmarketApp.opcion.personalizacion">Personalizacion</label>
+          <select
+            class="form-control"
+            id="field_personalizacion"
+            data-cy="personalizacion"
+            name="personalizacion"
+            formControlName="personalizacion"
+            [compareWith]="comparePersonalizacion"
+          >
+            <option [ngValue]="null"></option>
+            @for (personalizacionOption of personalizacionsSharedCollection; track $index) {
+              <option [ngValue]="personalizacionOption">{{ personalizacionOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (opcion(); as opcionRef) {
+      <div>
+        <h2 data-cy="opcionDetailsHeading"><span jhiTranslate="techmarketApp.opcion.detail.title">Opcion</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ opcionRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.opcion.codigo">Codigo</span></dt>
+          <dd>
+            <span>{{ opcionRef.codigo }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.opcion.nombre">Nombre</span></dt>
+          <dd>
+            <span>{{ opcionRef.nombre }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.opcion.descripcion">Descripcion</span></dt>
+          <dd>
+            <span>{{ opcionRef.descripcion }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.opcion.precioAdicional">Precio Adicional</span></dt>
+          <dd>
+            <span>{{ opcionRef.precioAdicional }}</span>
+          </dd>
+          <dt><span jhiTranslate="techmarketApp.opcion.personalizacion">Personalizacion</span></dt>
+          <dd>
+            @if (opcion()!.personalizacion) {
+              <div>
+                <a [routerLink]="['/personalizacion', opcion()!.personalizacion?.id, 'view']">{{ opcionRef.personalizacion?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/opcion', opcionRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

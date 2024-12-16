@@ -1,0 +1,26 @@
+{
+  "techmarketApp": {
+    "caracteristica": {
+      "home": {
+        "title": "Caracteristicas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Caracteristica",
+        "createOrEditLabel": "Crear o editar Caracteristica",
+        "notFound": "Ningún Caracteristicas encontrado"
+      },
+      "created": "Un nuevo Caracteristica ha sido creado con el identificador {{ param }}",
+      "updated": "Un Caracteristica ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Caracteristica ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Caracteristica {{ id }}?"
+      },
+      "detail": {
+        "title": "Caracteristica"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "dispositivo": "Dispositivo"
+    }
+  }
+}

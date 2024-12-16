@@ -1,0 +1,23 @@
+{
+  "annotations": {
+    "changelogDate": "20241004124556"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Caracteristica",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

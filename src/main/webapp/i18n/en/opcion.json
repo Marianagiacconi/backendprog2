@@ -1,0 +1,28 @@
+{
+  "techmarketApp": {
+    "opcion": {
+      "home": {
+        "title": "Opcions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Opcion",
+        "createOrEditLabel": "Create or edit a Opcion",
+        "notFound": "No Opcions found"
+      },
+      "created": "A new Opcion is created with identifier {{ param }}",
+      "updated": "A Opcion is updated with identifier {{ param }}",
+      "deleted": "A Opcion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Opcion {{ id }}?"
+      },
+      "detail": {
+        "title": "Opcion"
+      },
+      "id": "ID",
+      "codigo": "Codigo",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "precioAdicional": "Precio Adicional",
+      "personalizacion": "Personalizacion"
+    }
+  }
+}

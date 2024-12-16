@@ -1,0 +1,28 @@
+{
+  "techmarketApp": {
+    "adicional": {
+      "home": {
+        "title": "Adicionals",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Adicional",
+        "createOrEditLabel": "Crear o editar Adicional",
+        "notFound": "Ningún Adicionals encontrado"
+      },
+      "created": "Un nuevo Adicional ha sido creado con el identificador {{ param }}",
+      "updated": "Un Adicional ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Adicional ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Adicional {{ id }}?"
+      },
+      "detail": {
+        "title": "Adicional"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "precio": "Precio",
+      "precioGratis": "Precio Gratis",
+      "dispositivos": "Dispositivos"
+    }
+  }
+}

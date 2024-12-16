@@ -1,0 +1,31 @@
+{
+  "techmarketApp": {
+    "dispositivo": {
+      "home": {
+        "title": "Dispositivos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Dispositivo",
+        "createOrEditLabel": "Crear o editar Dispositivo",
+        "notFound": "Ningún Dispositivos encontrado"
+      },
+      "created": "Un nuevo Dispositivo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Dispositivo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Dispositivo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Dispositivo {{ id }}?"
+      },
+      "detail": {
+        "title": "Dispositivo"
+      },
+      "id": "ID",
+      "codigo": "Codigo",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "precioBase": "Precio Base",
+      "moneda": "Moneda",
+      "caracteristicas": "Caracteristicas",
+      "personalizaciones": "Personalizaciones",
+      "adicionales": "Adicionales"
+    }
+  }
+}

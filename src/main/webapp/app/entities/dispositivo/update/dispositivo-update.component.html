@@ -1,0 +1,141 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-dispositivo-heading"
+        data-cy="DispositivoCreateUpdateHeading"
+        jhiTranslate="techmarketApp.dispositivo.home.createOrEditLabel"
+      >
+        Create or edit a Dispositivo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="techmarketApp.dispositivo.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let codigoRef = editForm.get('codigo')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_codigo" jhiTranslate="techmarketApp.dispositivo.codigo">Codigo</label>
+          <input type="text" class="form-control" name="codigo" id="field_codigo" data-cy="codigo" formControlName="codigo" />
+          @if (codigoRef.invalid && (codigoRef.dirty || codigoRef.touched)) {
+            <div>
+              @if (editForm.get('codigo')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let nombreRef = editForm.get('nombre')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_nombre" jhiTranslate="techmarketApp.dispositivo.nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+          @if (nombreRef.invalid && (nombreRef.dirty || nombreRef.touched)) {
+            <div>
+              @if (editForm.get('nombre')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let descripcionRef = editForm.get('descripcion')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_descripcion" jhiTranslate="techmarketApp.dispositivo.descripcion">Descripcion</label>
+          <textarea
+            class="form-control"
+            name="descripcion"
+            id="field_descripcion"
+            data-cy="descripcion"
+            formControlName="descripcion"
+          ></textarea>
+          @if (descripcionRef.invalid && (descripcionRef.dirty || descripcionRef.touched)) {
+            <div>
+              @if (editForm.get('descripcion')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let precioBaseRef = editForm.get('precioBase')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_precioBase" jhiTranslate="techmarketApp.dispositivo.precioBase">Precio Base</label>
+          <input
+            type="number"
+            class="form-control"
+            name="precioBase"
+            id="field_precioBase"
+            data-cy="precioBase"
+            formControlName="precioBase"
+          />
+          @if (precioBaseRef.invalid && (precioBaseRef.dirty || precioBaseRef.touched)) {
+            <div>
+              @if (editForm.get('precioBase')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('precioBase')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let monedaRef = editForm.get('moneda')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_moneda" jhiTranslate="techmarketApp.dispositivo.moneda">Moneda</label>
+          <input type="text" class="form-control" name="moneda" id="field_moneda" data-cy="moneda" formControlName="moneda" />
+          @if (monedaRef.invalid && (monedaRef.dirty || monedaRef.touched)) {
+            <div>
+              @if (editForm.get('moneda')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label for="field_adicionales" jhiTranslate="techmarketApp.dispositivo.adicionales">Adicionales</label>
+          <select
+            class="form-control"
+            id="field_adicionales"
+            data-cy="adicionales"
+            multiple
+            name="adicionales"
+            formControlName="adicionales"
+            [compareWith]="compareAdicional"
+          >
+            @for (adicionalOption of adicionalsSharedCollection; track $index) {
+              <option [ngValue]="adicionalOption">{{ adicionalOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
